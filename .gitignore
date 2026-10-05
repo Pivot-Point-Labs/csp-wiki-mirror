@@ -1,0 +1,19 @@
+# Build output: the converter regenerates all of this from the wiki on every run.
+acc-extension-config/
+docs/
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Keep the Pages artifact out of git even if a build is run locally here.
+.github/workflows/*.tmp
