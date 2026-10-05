@@ -758,13 +758,16 @@ def write_mkdocs_yml(
             "repo_url: " + yaml_scalar(repo_url.replace(".wiki.git", "")),
             "repo_name: " + yaml_scalar(title),
         ]
-    # The header repo button follows --repo-url (the mirror); the credit in the
-    # footer and the social icon point back at the upstream wiki being mirrored.
+    # Every link this site emits points at the wiki it mirrors, never at the
+    # mirror itself: the header repo button, the footer credit and the social
+    # icon all resolve to the upstream repo/wiki.
     upstream_url = (source_url or repo_url).replace(".wiki.git", "")
     wiki_url = upstream_url + ("/wiki" if upstream_url else "")
     if use_material:
         credit = f"Content from the community wiki of {upstream_url}" if upstream_url else f"Content from {title}"
-        if upstream_url and upstream_url != repo_url.replace(".wiki.git", ""):
+        # Only claim this is a mirror when it really is published somewhere
+        # else, i.e. a site_url that is not the upstream repo itself.
+        if upstream_url and site_url.rstrip("/") not in ("", upstream_url):
             credit += " (mirrored automatically; not the canonical home)"
         lines += ["", "copyright: >-", "  " + credit]
     extra: dict[str, object] = {}
