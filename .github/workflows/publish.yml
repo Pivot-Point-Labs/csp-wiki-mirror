@@ -1,0 +1,91 @@
+name: Mirror wiki to GitHub Pages
+
+# Rebuilds the ACC/CSP extension config wiki mirror and publishes it to
+# GitHub Pages once a week.
+#
+# Run it by hand any time from the Actions tab ("Run workflow") without pushing
+# or committing anything. That is the intended escape hatch for the two ways the
+# weekly schedule can go quiet: GitHub silently disables scheduled workflows
+# after 60 days of repo inactivity, and scheduled runs are only queued on
+# default-branch state, so a cron can also lapse without any visible error.
+on:
+  schedule:
+    # Mondays at 06:00 UTC. GitHub queues scheduled runs, so this may start
+    # a few minutes late; it is also skipped entirely if the repo has had no
+    # activity for 60 days.
+    - cron: '0 6 * * 1'
+  # "Run workflow" button in the Actions tab. Re-runs the whole pipeline from
+  # the current state of the default branch with no commit or push needed.
+  workflow_dispatch:
+  # Convenience only: you never need to push to redeploy, this just makes a
+  # change to the converter or this file take effect immediately.
+  push:
+    branches: [main]
+    paths:
+      - wiki2mkdocs.py
+      - .github/workflows/publish.yml
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race each other; let the newest queued run win.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # The wiki being mirrored.
+  WIKI_SOURCE: ac-custom-shaders-patch/acc-extension-config
+  # Public base URL of the deployed site. MkDocs needs this to emit canonical
+  # links, a sitemap and working social cards.
+  SITE_URL: https://pivot-point-labs.github.io/csp-wiki-mirror
+  # Where the built site lands, relative to the checked-out repo.
+  OUT_DIR: acc-extension-config
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the converter
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install MkDocs and Material for MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Build the mirror
+        run: |
+          python wiki2mkdocs.py "$WIKI_SOURCE" \
+            --output "$OUT_DIR" \
+            --site-url "$SITE_URL" \
+            --repo-url "https://github.com/Pivot-Point-Labs/csp-wiki-mirror" \
+            --ignore-link 'Cars-–-Extra-turbo-options'
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the built site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUT_DIR }}/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
