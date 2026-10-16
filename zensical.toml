@@ -1,0 +1,262 @@
+[project]
+site_url = "https://pivot-point-labs.github.io/csp-wiki-mirror/"
+site_name = "AC CSP Wiki Mirror"
+site_description = "CSP Wiki mirroring the official documentation with a proper static wiki generator."
+site_author = "SLX"
+
+copyright = "Made by SLX"
+
+repo_url = "https://github.com/ac-custom-shaders-patch/acc-extension-config"
+# repo_name = "user/repo"
+# edit_uri = "edit/main/docs/"
+
+nav = [
+  { "Home" = "index.md" },
+  { "General Information" = [
+    { "Troubleshooting" = "general-troubleshooting.md" },
+    { "Screenshots Name Format" = "general-screenshots-name-format.md" },
+    { "Configs Format (INIpp)" = "https://github.com/ac-custom-shaders-patch/inipp" },
+    { "Filtering" = "general-filtering.md" },
+    { "Linear Color Space" = "general-linear-color-space.md" },
+  ] },
+  { "Car Physics" = [
+    { "Enabling Extended Physics" = "cars-enabling-extended-physics.md" },
+    { "Aerodynamics" = "cars-aerodynamics.md" },
+    { "Body Flex" = "cars-body-flex.md" },
+    { "Brake System" = "cars-brakes.md" },
+    { "Driver Weight Shift for Karts" = "cars-driver-weight-shift.md" },
+    { "Dynamic Controller Updates" = "cars-new-inputs-for-dynamic-controllers.md" },
+    { "Physics Scripts" = "cars-physics-scripts.md" },
+    { "Powertrain" = "cars-powertrain.md" },
+    { "Setup Items Driven By Controllers" = "cars-setup-controllers.md" },
+    { "Steering" = "cars-steering.md" },
+    { "Suspension" = "cars-suspension.md" },
+    { "COSMIC Suspension" = "cars-cosmic-suspension.md" },
+    { "Traction Control" = "cars-traction-control.md" },
+    { "Tyre Physics" = "cars-tyre-physics.md" },
+    { "Tyre Thermal Models" = "cars-tyre-thermal-models.md" },
+    { "Tyre Types" = "cars-tyre-types.md" },
+    { "Helper Tools" = "cars-helper-tools.md" },
+  ] },
+  { "Track Physics" = [
+    { "Enabling Extended Physics" = "tracks-enabling-extended-physics.md" },
+    { "General Options" = "tracks-general-extended-physics-options.md" },
+    { "Custom Raycasting" = "tracks-custom-raycasting.md" },
+    { "Collision Parameters" = "tracks-collision-parameters.md" },
+    { "Dynamic Physics Objects" = "tracks-dynamic-physics-objects.md" },
+    { "Geometric colliders" = "tracks-geometric-colliders.md" },
+    { "Surface Tweaks" = "tracks-surface-tweaks.md" },
+  ] },
+  { "Car & Track Configs" = [
+    { "Extra FX Flags" = "general-extra-fx-flags.md" },
+    { "Extra FX Emissive" = "general-extra-fx-emissive.md" },
+    { "Mesh Adjustments" = "mesh-adjustment.md" },
+    { "Model Replacements" = "general-model-replacements.md" },
+    { "Shader Replacements" = "general-shader-replacements.md" },
+    { "Scene Queries" = "general-scene-queries.md" },
+    { "UV2" = "general-uv2.md" },
+  ] },
+  { "Car Configs" = [
+    { "General Options" = "cars-general-options.md" },
+    { "About Guessed Configs" = "cars-about-guessed-configs.md" },
+    { "Tips and Tricks" = "cars-tips-and-tricks.md" },
+    { "Instruments" = [
+      { "General Options" = "cars-instruments-options.md" },
+      { "Analog Instruments" = "cars-analog-instruments.md" },
+      { "Analog Odometers" = "cars-analog-odometers.md" },
+      { "Animations" = "cars-animations.md" },
+      { "Digital Instruments" = "cars-digital-instruments.md" },
+      { "Emissive Objects" = "cars-emissive-objects.md" },
+      { "Extra Switches" = "cars-extra-switches.md" },
+      { "Inputs" = "cars-instruments-inputs.md" },
+      { "LED panels" = "cars-led-panels.md" },
+      { "Multichannel Emissives" = "cars-multichannel-emissives.md" },
+      { "Vintage Tachometers" = "cars-vintage-tachometers.md" },
+    ] },
+    { "Miscellaneous" = [
+      { "Audio" = "cars-audio-options.md" },
+      { "Brake Disc FX" = "cars-brake-disc-fx.md" },
+      { "Deforming Bonnets" = "cars-deforming-bonnets.md" },
+      { "Driver Model" = "cars-driver-model.md" },
+      { "Exhaust Smoke" = "cars-exhaust-smoke.md" },
+      { "Exhaust Flames" = "cars-exhaust-flames.md" },
+      { "Extra Lights" = "extra-lights.md" },
+      { "Lights" = "cars-lights.md" },
+      { "Extra Replay Data" = "cars-extra-replay-data.md" },
+      { "Fake Shadows FX" = "cars-fake-shadows-fx.md" },
+      { "Local Cubemaps" = "cars-local-cubemaps.md" },
+      { "Mesh Splitting" = "cars-meshes-splitting.md" },
+      { "Miscellaneous Options" = "cars-miscellaneous-options.md" },
+      { "Neck FX" = "cars-neck-fx.md" },
+      { "Node Adjustments" = "cars-node-adjustments.md" },
+      { "Optional parts" = "cars-optional-parts.md" },
+      { "Rain occlusion tweaks" = "cars-rain-occlusion-tweaks.md" },
+      { "Refracting Headlights" = "cars-refracting-headlights.md" },
+      { "Smart Mirror" = "cars-smart-mirror.md" },
+      { "Sparks" = "cars-sparks.md" },
+      { "Tyres FX" = "cars-tyres-fx.md" },
+      { "Visually Adjustable Wings" = "cars-visually-adjustable-wings.md" },
+      { "Wheels" = "cars-wheels.md" },
+      { "Wobbly Bits" = "cars-wobbly-bits.md" },
+      { "Wobbly Wipers" = "cars-wobbly-wipers.md" },
+    ] },
+  ] },
+  { "Track Configs" = [
+    { "General Options" = "tracks-general-options.md" },
+    { "Animated Objects" = "tracks-animated-objects.md" },
+    { "Area Map" = "tracks-area-map.md" },
+    { "Audio" = "tracks-audio.md" },
+    { "Bounced Light" = "tracks-bounced-light.md" },
+    { "Conditions" = "tracks-conditions.md" },
+    { "Deforming Walls" = "tracks-deforming-walls.md" },
+    { "Dirt on Tyres" = "tracks-dirt-on-tyres.md" },
+    { "Displays" = "tracks-displays.md" },
+    { "Examples" = "tracks-examples.md" },
+    { "Grass FX" = "tracks-grass-fx.md" },
+    { "Lights" = "tracks-lights.md" },
+    { "Local Cubemaps" = "tracks-local-cubemaps.md" },
+    { "Meshes Manipulation" = "tracks-meshes-manipulation.md" },
+    { "Miscellaneous Options" = "tracks-miscellaneous-options.md" },
+    { "Rain FX" = "tracks-rainfx.md" },
+    { "Trees" = "tracks-trees.md" },
+    { "Water Shader" = "tracks-water-shader.md" },
+  ] },
+  { "Post-processing Filters" = [
+    { "Extra Options" = "post-processing-extra-options.md" },
+    { "More About Color Grading" = "post-processing-more-about-color-grading.md" },
+  ] },
+  { "Python Apps" = [
+    { "App Icons" = "python-apps-app-icons.md" },
+    { "Live Reload" = "python-apps-live-reload.md" },
+    { "New Functions" = "python-apps-new-functions.md" },
+    { "Strict Mode" = "python-apps-strict-mode.md" },
+  ] },
+  { "Lua Apps" = [
+    { "About Lua Apps" = "https://github.com/ac-custom-shaders-patch/acc-lua-sdk/wiki/Lua-apps" },
+  ] },
+  { "Server Configs" = [
+    { "General Options" = "misc-server-extra-options.md" },
+  ] },
+  { "Other Things" = [
+    { "Custom AI" = "other-things-custom-ai.md" },
+  ] },
+  { "Unrelated to Custom Shaders Patch" = [
+    { "Content Updates Project (CUP)" = "unrelated-about-content-auto-updates-system-(cup).md" },
+    { "Default Names for Paint Shop in Custom Showroom" = "unrelated-default-names-for-paint-shop-in-custom-showroom.md" },
+  ] },
+  { "Additional pages" = [
+    { "About content auto updates system (CUP)" = "about-content-auto-updates-system-(cup).md" },
+    { "Cars: Custom suspension joints" = "cars-custom-suspension-joints.md" },
+    { "General: CSP features" = "general-csp-features.md" },
+    { "Misc: KN5 Encryption" = "misc-kn5-encryption.md" },
+    { "Tracks: Distant emissives" = "tracks-distant-emissives.md" },
+    { "Tracks: Vertex AO" = "tracks-vertex-ao.md" },
+  ] },
+]
+
+extra_css = ["stylesheets/extra.css"]
+# extra_javascript = ["javascripts/extra.js"]
+
+[project.theme]
+# variant = "classic"
+# custom_dir = "overrides"
+# favicon = "images/favicon.png"
+language = "en"
+features = [
+  "announce.dismiss",
+  # "content.action.edit",
+  # "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  # "header.autohide",
+  # "navigation.expand",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  # "navigation.instant.progress",
+  "navigation.path",
+  # "navigation.prune",
+  # "navigation.sections",
+  # "navigation.tabs",
+  # "navigation.tabs.sticky",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+  "toc.integrate",
+]
+
+# logo = "assets/logo.png"
+
+# [project.theme.icon]
+# logo = "lucide/smile"
+
+# [project.theme.font]
+# text = "Inter"
+# code = "Jetbrains Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+accent = "cyan"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/github"
+# link = "https://github.com/user/repo"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/mastodon"
+# link = "https://fosstodon.org/@user"
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+toc.toc_depth = 3
+pymdownx.arithmatex.generic = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+# pymdownx.snippets.base_path = "includes"
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}
+
+[project.extra]
+generator = false
