@@ -1,6 +1,5 @@
 # Build output: the converter regenerates all of this from the wiki on every run.
 acc-extension-config/
-docs/
 site/
 
 # Python
